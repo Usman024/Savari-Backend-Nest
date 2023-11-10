@@ -55,7 +55,7 @@ export class QuoteController {
     getAllNew(@Param('status') status: StatusEnum) {
         const statusCheck: StatusEnum = StatusEnum[status.toUpperCase()];
         if (!statusCheck) {
-            let message = `Allowed Status in Url ${StatusEnum.NEW}, ${StatusEnum.DECLINED} or ${StatusEnum.OPEN}`
+            let message = `Allowed Status in Url is ${StatusEnum.NEW}, ${StatusEnum.DECLINED} or ${StatusEnum.OPEN}`
             throw new BadRequestException(message);
         }
         return this.quoteServices.getAllByStatus(statusCheck)
